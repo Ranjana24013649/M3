@@ -15,9 +15,54 @@ To write a program to prepare EMI calculator using function without return type 
 
 ## PROGRAM
 
+#include <stdio.h>
+
+#include <math.h>
+
+void calculateEMI(float principal, float annualRate, int tenureYears);
+
+int main() {
+
+    float principal, annualRate;
+    
+    int tenureYears;
+    
+    printf("Enter loan amount (principal): ");
+    
+    scanf("%f", &principal);
+    
+    printf("Enter annual interest rate (in %%): ");
+    
+    scanf("%f", &annualRate);
+    
+    printf("Enter loan tenure (in years): ");
+    
+    scanf("%d", &tenureYears);
+    
+    calculateEMI(principal, annualRate, tenureYears);
+    
+    return 0;
+    
+}
+void calculateEMI(float principal, float annualRate, int tenureYears) {
+
+    float monthlyRate = annualRate / (12 * 100); 
+    
+    int tenureMonths = tenureYears * 12;
+    
+    float emi;
+
+    emi = (principal * monthlyRate * pow(1 + monthlyRate, tenureMonths)) /
+    
+          (pow(1 + monthlyRate, tenureMonths) - 1);
+
+    printf("\nYour EMI is: ₹%.2f per month\n", emi);
+}
 
 ## OUTPUT
 
+
+![Screenshot (130)](https://github.com/user-attachments/assets/574eb2b7-ec75-403a-a44e-81fc1a7852eb)
 
 
 
@@ -44,10 +89,45 @@ To write a C program to generate the Fibonacci series for the value 6.
 
 ## PROGRAM
 
+#include <stdio.h>
+
+int main() {
+
+    int n = 6;  
+    
+    int first = 0, second = 1, next;
+    
+    printf("Fibonacci series for %d terms:\n", n);
+    
+    for (int i = 0; i < n; i++) {
+    
+        if (i <= 1)
+        
+            next = i;
+            
+        else {
+        
+            next = first + second;
+            
+            first = second;
+            
+            second = next;
+            
+        }
+        printf("%d ", next);
+        
+    }
+    printf("\n");
+    
+    return 0;
+}
+
+
 ## OUTPUT
 
 
 
+![Screenshot (131)](https://github.com/user-attachments/assets/114b4489-621b-4526-9812-dfa37597887d)
 
 
 
@@ -72,9 +152,34 @@ To write a C program to read n elements as input and print the last element of t
 
 ## PROGRAM
 
+#include <stdio.h>
+
+int main() {
+
+    int n;
+    
+    printf("Enter the number of elements: ");
+    
+    scanf("%d", &n);
+    
+    int arr[n];
+    
+    printf("Enter %d elements:\n", n);
+    
+    
+    for (int i = 0; i < n; i++) {
+    
+        scanf("%d", &arr[i]);
+    }
+    printf("The last element is: %d\n", arr[n - 1]);
+
+    return 0;
+}
+
 ## OUTPUT
 
 
+![image](https://github.com/user-attachments/assets/58a8bd94-263c-46cd-95b5-881099d860fc)
 
 
 
@@ -102,10 +207,42 @@ To write a C Program to count total number of positive elements in an array.
 
 ## PROGRAM
 
+#include <stdio.h>
+
+int main() {
+
+    int n, count = 0;
+    
+    printf("Enter the number of elements: ");
+    
+    scanf("%d", &n);
+    
+    int arr[n];
+    printf("Enter %d elements:\n", n);
+    
+    
+    for (int i = 0; i < n; i++) {
+    
+        scanf("%d", &arr[i]);
+        
+    }
+    for (int i = 0; i < n; i++) {
+    
+        if (arr[i] > 0) {
+        
+            count++;
+        }
+    }
+    printf("Total number of positive elements = %d\n", count);
+
+    return 0;
+}
+
 
 ## OUTPUT
 
 
+![Screenshot (133)](https://github.com/user-attachments/assets/7d6eccf0-827f-4f00-a4f9-90625058ee17)
 
 
 
@@ -138,8 +275,48 @@ To write a C program to replace all even elements with 'E' in one dimensional ar
 
 ## Program:
 
+#include <stdio.h>
+int main() {
+
+    int n;
+    
+    printf("Enter the number of elements: ");
+    
+    scanf("%d", &n);
+    
+    int arr[n];
+    printf("Enter %d integers:\n", n);
+    
+    
+    for (int i = 0; i < n; i++) {
+    
+        scanf("%d", &arr[i]);
+    }
+    printf("Modified array (even elements replaced with 'E'):\n");
+    
+    for (int i = 0; i < n; i++) {
+    
+        if (arr[i] % 2 == 0) {
+        
+            printf("E ");
+            
+        } else {
+        
+            printf("%d ", arr[i]);
+            
+            
+        }
+    }
+
+    printf("\n");
+    
+    return 0;
+}
+
 ## Output:
- 
+
+ ![Screenshot (134)](https://github.com/user-attachments/assets/f69c80a5-6247-42b6-8700-2fcbc2708f0d)
+
 
 
 ## Result:
